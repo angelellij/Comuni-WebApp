@@ -1,14 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import './materialize-src/sass/materialize.scss';
+@import './styles/margins.scss';
 
-$PrimaryColor: #85BC26;
+.botonInvis{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 25px;
+  height: 25px;
+  z-index: 10;
+}
 
-html, body {
-    height: 100%;
-  }
-
-.BackColor1{
-    background-color: $PrimaryColor;
+.BackgroundComuni{
+  height: 100%;
+  width: 100%;
+  background-image: url("./assets/ComuniFondo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
     .input-field input,
@@ -62,4 +71,9 @@ html, body {
     .input-field textarea.valid~.helper-text::after,
     .input-field textarea.valid:focus~.helper-text::after {
       color: #e1ebd0;
+    }
+
+    .row,
+    .row .input-field{
+      margin-bottom: 0px;
     }
