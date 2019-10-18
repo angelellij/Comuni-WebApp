@@ -1,0 +1,13 @@
+<nav>
+    <div class="nav-wrapper comuni-color paddingNav">
+        <a class="brand-logo"> Comuni </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a [routerLink]="[ '/app-central/noticias']">Noticias</a></li>
+            <li><a [routerLink]="[ '/app-central/espacios']">Espacios</a></li>
+            <li><a [routerLink]="[ '/app-central/mensajeria']">Chats</a></li>
+        </ul>
+    </div>
+</nav>
+<div>   
+    <router-outlet></router-outlet>
+</div>
