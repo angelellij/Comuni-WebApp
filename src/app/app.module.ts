@@ -14,6 +14,7 @@ import { MensajeriaPageComponent } from './pages/mensajeria-page/mensajeria-page
 import { PostComponent } from './components/post/post.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ContactosComponent } from './components/contactos/contactos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
