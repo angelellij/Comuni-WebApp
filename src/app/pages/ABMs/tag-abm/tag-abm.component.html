@@ -1,0 +1,39 @@
+<div class="BackgroundComuni">
+        <div class="container row">
+            <form [formGroup]="noticiaForm" (ngSubmit)="submit(noticiaForm.value)" class="col col offset-s3 s6">
+                <div class="card #e8f5e9 green lighten-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">Crear Noticia</span>
+                        
+                        <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="Nombre" formControlName="Titulo" type="text" class="validate">
+                                    <label for="Nombre">Titulo de la etiqueta</label>
+                                </div>
+                            </div>
+                        
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="ColorLetra" formControlName="Descripcion" type="text" class="validate">
+                                <label for="ColorLetra">Color de la letra</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="ColorBackground" formControlName="Descripcion" type="text" class="validate">
+                                <label for="ColorBackground">Color del fondo</label>
+                            </div>
+                        </div>
+
+                        <div class="MarginBottom20"></div>
+    
+                        <div class="right-align">
+                            <button type="submit" class="btn comuni-color">Crear</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    

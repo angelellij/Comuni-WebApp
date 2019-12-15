@@ -15,6 +15,13 @@ import { PostComponent } from './components/post/post.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ContactosComponent } from './components/contactos/contactos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoticiaABMComponent } from './pages/ABMs/noticia-abm/noticia-abm.component';
+import { EspacioComponent } from './components/espacio/espacio.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { ConfEspacioPageComponent } from './pages/conf-espacio-page/conf-espacio-page.component';
+import { TagAbmComponent } from './pages/ABMs/tag-abm/tag-abm.component';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +36,19 @@ import { HttpClientModule } from '@angular/common/http';
     MensajeriaPageComponent,
     PostComponent,
     ChatComponent,
-    ContactosComponent
+    ContactosComponent,
+    NoticiaABMComponent,
+    EspacioComponent,
+    PostsComponent,
+    ConfEspacioPageComponent,
+    TagAbmComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

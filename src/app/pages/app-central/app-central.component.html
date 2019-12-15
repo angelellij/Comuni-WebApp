@@ -5,6 +5,7 @@
             <li><a [routerLink]="[ '/app-central/noticias']">Noticias</a></li>
             <li><a [routerLink]="[ '/app-central/espacios']">Espacios</a></li>
             <li><a [routerLink]="[ '/app-central/mensajeria']">Chats</a></li>
+            <li><a (click) = "logout()">{{usuario.Object.Nombre + " " + usuario.Object.Apellido}}</a></li>
         </ul>
     </div>
 </nav>

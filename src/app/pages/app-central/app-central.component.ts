@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Go } from 'src/app/models/go';
+import { Usuario } from 'src/app/models/usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-app-central',
@@ -7,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppCentralComponent implements OnInit {
 
-  constructor() { }
+  private usuario:Go<Usuario> = {} as Go<Usuario>;
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  this.usuario = JSON.parse(localStorage.getItem("usuario"));
+  }
 
+  logout(){
+    localStorage.clear();
+    this.router.navigate([""]);
+    
   }
 
 }

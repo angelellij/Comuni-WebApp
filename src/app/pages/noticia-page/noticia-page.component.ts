@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Location } from '@angular/common';
+import { Noticia } from 'src/app/models/noticia';
+import { Go } from 'src/app/models/go';
+import { Usuario } from 'src/app/models/usuario';
+import { NoticiaService } from 'src/app/services/noticia.service';
 
 @Component({
   selector: 'app-noticia-page',
@@ -6,10 +11,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./noticia-page.component.scss']
 })
 export class NoticiaPageComponent implements OnInit {
+  @Output() sendUsuario: EventEmitter<any> = new EventEmitter<any>()
+  private usuario:Go<Usuario>;
+  private noticias:Array<Go<Noticia>>;
+  private noticias1:Array<Go<Noticia>>;;
+  private noticias2:Array<Go<Noticia>>;
 
-  constructor() { }
+  constructor(
+    private noticiaSv:NoticiaService) { }
 
   ngOnInit() {
+    this.usuario = JSON.parse(localStorage.getItem("usuario"));
+    this.getNoticias();
   }
 
+  getNoticias(){
+    this.noticiaSv.getAll().subscribe(res=>{
+      this.noticias = res as Array<Go<Noticia>>;
+      if(this.noticias.length != undefined){
+        var i = 0;
+        this.noticias.forEach(element => {
+          if(i % 2 == 0){
+            this.noticias1.push(element);
+          }  else{
+            this.noticias2.push(element);
+          }
+        });
+      }
+    });
+  }
+
+  displayFabs(){
+    var elems = document.querySelectorAll('.fixed-action-btn');
+  }
+  
 }

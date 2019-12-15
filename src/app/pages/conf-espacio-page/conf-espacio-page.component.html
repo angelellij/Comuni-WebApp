@@ -1,0 +1,39 @@
+<div class="container">
+    
+    
+    <p>Administradores</p>
+    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
+        <p>Este espacio no tiene administradores</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div *ngFor="let espaciox of espacios">
+        <app-espacio [espacio]="espaciox"></app-espacio>
+    </div>
+    </ng-template> 
+
+    
+    <p>Miembros</p>
+    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
+        <p>Este espacio no tiene Miembros</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div *ngFor="let espaciox of espacios">
+        <app-espacio [espacio]="espaciox"></app-espacio>
+    </div>
+    </ng-template> 
+
+    <p>Etiquetas</p>
+    <ng-container *ngIf="tags == null || this.tags == undefined; else elseTemplate">
+        <p>Este espacio no tiene etiquetas</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div *ngFor="let tagx of tags">
+        <p>tagx.key</p>
+    </div>
+    </ng-template>  
+</div>
+<div class="fixed-action-btn">
+    <a [routerLink]="[ '../editornoticia' ]" class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+</div>

@@ -2,6 +2,51 @@
 @import './materialize-src/sass/materialize.scss';
 @import './styles/margins.scss';
 
+body{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.hrColorStyle{
+  height: 1px;
+  border: 0;
+  background-color: white;
+}
+
+.loader {
+  position: absolute;
+  top :0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  }
+
+.parentCenters{
+  justify-content: center;
+  display: flex;
+}
+
+.full-height{
+  height:calc(100vh - 64px);
+}
+
+.full-width{
+  width:100%;
+}
+
+.inline{
+  display: inline-flex;
+}
+
+.circle-small-img{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .botonInvis{
   position: fixed;
   left: 0px;

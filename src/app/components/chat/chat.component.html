@@ -1,1 +1,51 @@
-<p>chat works!</p>
+<ng-container *ngIf="usuario == undefined; else elseTemplate">
+    <p> Elija un contacto </p>
+</ng-container>
+<ng-template #elseTemplate>
+    <div>
+        <h6>{{usuario.Object.Nombre + " " + usuario.Object.Apellido}}</h6>
+    </div>
+    <ng-container *ngIf="dataAccesed === false; else elseTemplate1">
+        <div class="loaderChat preloader-wrapper big active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    
+    <ng-template #elseTemplate1>
+
+        <div class="chatContainer">
+            <ng-container *ngIf="mensajes == undefined || mensajes == null || mensajes.length == 0; else elseTemplate2">
+                <p> No tiene mensajes con este contacto. </p>
+            </ng-container>
+            <ng-template #elseTemplate2>
+                <div *ngFor="let mensaje of mensajes" >
+                    <div
+                    [ngClass]="{'textoChat':true,
+                                'textoRecibido': mensaje.Object.Receptor.match(this.usuarioLogueado.Key),
+                                'textoEmitido': mensaje.Object.Emisor.match(this.usuarioLogueado.Key)
+                                }" > 
+                        <p>{{mensaje.Object.Texto}}</p>
+                        <p class="dateChat">{{mensaje.Object.Date}}</p>
+                    </div>
+                </div>
+            </ng-template>
+            <form [formGroup]="mensajeriaForm" (ngSubmit)=submitMessage(mensajeriaForm.value)>
+                <input formControlName="Texto" type="text" placeholder="Escriba su mensaje...">
+                <button class= "btn comuni-color" type="submit">Enviar</button>
+            </form>
+        </div> 
+    </ng-template> 
+</ng-template>
+
+
+

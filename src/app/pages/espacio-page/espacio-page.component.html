@@ -1,3 +1,10 @@
 <div class="container">
-    <app-post></app-post>
+     <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
+         <p>No esta inscripto en ningun espacio.</p>
+     </ng-container>
+     <ng-template #elseTemplate>
+         <div *ngFor="let espaciox of espacios">
+            <app-espacio [espacio]="espaciox"></app-espacio>
+        </div>
+     </ng-template>  
 </div>

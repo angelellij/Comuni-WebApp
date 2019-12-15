@@ -1,0 +1,15 @@
+<div class="container">
+    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
+        <p>No hay ningun post escrito.Se el primero!</p>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <div *ngFor="let postx of posts">
+            <app-post [post]="postx"></app-post>
+        </div>
+    </ng-template>  
+</div>
+<div class="fixed-action-btn">
+    <a [routerLink]="[ '../editornoticia' ]" class="btn-floating btn-large red">
+        <i class="large material-icons">mode_edit</i>
+    </a>
+</div>

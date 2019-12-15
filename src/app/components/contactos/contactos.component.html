@@ -1,1 +1,16 @@
-<p>contactos works!</p>
+<div class= "full-height">
+    <ng-container class= "full-height" *ngIf="usuarios != null && usuarios != undefined ; else elseTemplate">
+        <div *ngFor="let usuario of usuarios">
+            <div  class="usuario-container" (click)="onClickUsuario(usuario)">
+                <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                <p class="inline usuario-nombre">{{usuario.Object.Nombre + " " + usuario.Object.Apellido}}</p>
+                <hr class="hrColorStyle">
+            </div>
+        </div>
+        
+    </ng-container>
+    <ng-template class= "full-height" #elseTemplate>
+        <p> No Hay contactos disponibles </p>
+    </ng-template>
+</div>
+

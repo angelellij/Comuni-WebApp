@@ -1,9 +1,9 @@
-<div class="row">
-    <div class="col m3 teal lighten-5">
+<div class="row containerChat">
+    <div class="col m3 #e8f5e9 green lighten-4">
         <app-contactos></app-contactos>
     </div>
 
     <div class="col m9">
-        <app-chat></app-chat>
+        <app-chat [usuario]="this.usuarioElegido"></app-chat>
     </div>
 </div>

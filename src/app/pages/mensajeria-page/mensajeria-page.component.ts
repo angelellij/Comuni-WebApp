@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Go } from 'src/app/models/go';
+import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-mensajeria-page',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mensajeria-page.component.scss']
 })
 export class MensajeriaPageComponent implements OnInit {
+
+  public usuarioElegido:Go<Usuario>;
 
   constructor() { }
 
