@@ -1,0 +1,90 @@
+<div class="BackgroundComuni">
+    <div class="container row full-height">
+        <form [formGroup]="espacioForm" (ngSubmit)="submit()" class="col col offset-s3 s6 margin-top-m">
+            <div class="card #e8f5e9 green lighten-2">
+                <div class="card-content white-text">
+                    <ng-container *ngIf="crear; else elseTemplate1">
+                        <span class="card-title">Crear Espacio</span>
+                    </ng-container>
+                    <ng-template #elseTemplate1>
+                        <span class="card-title">Editar Espacio</span>
+                    </ng-template>
+                    
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="Nombre" formControlName="Nombre" type="text" class="validate">
+                            <label for="Nombre">Titulo del Espacio</label>
+                            
+                            <div *ngIf="espacioForm.get('Nombre').invalid && (espacioForm.get('Nombre').dirty || espacioForm.get('Nombre').touched)" class="dangerText">
+                                <div *ngIf="espacioForm.get('Nombre').errors.required">
+                                    {{mensajeValidacion.Texto.required}}
+                                </div>
+                                <div *ngIf="espacioForm.get('Nombre').errors.minlength">
+                                    {{mensajeValidacion.Texto.minlength}}
+                                </div>
+                                <div *ngIf="espacioForm.get('Nombre').errors.maxlength">
+                                    {{mensajeValidacion.Texto.maxlength}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="Descripcion" formControlName="Descripcion" type="text" class="validate">
+                            <label for="Descripcion">Descripcion del Espacio</label>
+                            
+                            <div *ngIf="espacioForm.get('Descripcion').invalid && (espacioForm.get('Descripcion').dirty || espacioForm.get('Descripcion').touched)" class="dangerText">
+                                <div *ngIf="espacioForm.get('Descripcion').errors.required">
+                                    {{mensajeValidacion.Texto.required}}
+                                </div>
+                                <div *ngIf="espacioForm.get('Descripcion').errors.minlength">
+                                    {{mensajeValidacion.Texto.minlength}}
+                                </div>
+                                <div *ngIf="espacioForm.get('Descripcion').errors.maxlength">
+                                    {{mensajeValidacion.Texto.maxlength}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="MarginBottom20"></div>
+
+                    <div class="MarginBottom20"></div>
+
+                    <div class="right-align">
+                        <ng-container *ngIf="crear; else elseTemplate">
+                            <button type="submit" class="btn comuni-color">Crear</button>
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <button type="submit" class="btn comuni-color">Editar</button>
+                        </ng-template>
+                        
+                        
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    
+        <ng-container *ngIf="cargando;">
+            <div class="loader preloader-wrapper big active">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
+
+

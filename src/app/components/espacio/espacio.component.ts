@@ -18,7 +18,7 @@ export class EspacioComponent implements OnInit {
 
   goToEspacio(){
     sessionStorage.setItem("espacioActual", JSON.stringify(this.espacio));
-    this.router.navigateByUrl("localhost:4200/app-central/posts");
+    this.router.navigate([ 'app-central/posts' ]);
   }
 
 }

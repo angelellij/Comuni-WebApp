@@ -1,0 +1,36 @@
+<div class="BackgroundComuni">
+    <div class="container row full-height">
+        <div class="col col offset-s3 s6 margin-top-m">
+            <h3>Agregar usuario a {{espacioActual.Object.Nombre}} como {{tipo}} </h3>
+            <small>Haga click para agregarlo.</small>
+            <ng-container *ngIf="(usuarios == null || usuarios == undefined) && !cargando; else elseTemplate">
+                <p> Todos los usuarios estan inscriptos en este espacio. </p>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <div *ngFor="let usuario of usuarios">
+                    <div  class="usuario-container" (click)="submit(usuario)">
+                        <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                        <p class="inline usuario-nombre">{{usuario.Object.Nombre + " " + usuario.Object.Apellido}}</p>
+                        <hr class="hrColorStyle">
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+        <ng-container *ngIf="cargando;">
+            <div class="loader preloader-wrapper big active">
+                <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+

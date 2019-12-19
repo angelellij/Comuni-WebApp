@@ -11,6 +11,8 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
+
+  private cargando:boolean = false;
   private usuario:Go<Usuario> = {} as Go<Usuario>;
   private registrarseForm: FormGroup;
 
@@ -31,14 +33,16 @@ export class RegistroComponent implements OnInit {
   }
 
   submit(value:JSON){
+    this.cargando = true;
     if((value["Contrasena"] as string).match(value["Contrasena2"] as string)){
       delete value["Contrasena2"];
       this.usuario.Object = value as unknown as Usuario;
       this.usuarioSv.post(this.usuario.Object).subscribe(res=>{
-        console.log(res);
+        this.cargando = false;
       });
     }
     else{
+      this.cargando = false;
       alert("Las contrasenas no coinciden.");
     }
   }

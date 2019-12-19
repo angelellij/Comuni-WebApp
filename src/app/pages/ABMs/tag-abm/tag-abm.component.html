@@ -1,39 +1,113 @@
 <div class="BackgroundComuni">
-        <div class="container row">
-            <form [formGroup]="noticiaForm" (ngSubmit)="submit(noticiaForm.value)" class="col col offset-s3 s6">
+        <div class="container row full-height">
+            <form [formGroup]="tagForm" (ngSubmit)="submit()" class="col col offset-s3 s6 margin-top-m">
                 <div class="card #e8f5e9 green lighten-2">
                     <div class="card-content white-text">
-                        <span class="card-title">Crear Noticia</span>
+                        <ng-container *ngIf="crear; else elseTemplate1">
+                            <span class="card-title">Crear Etiqueta</span>
+                        </ng-container>
+                        <ng-template #elseTemplate1>
+                            <span class="card-title">Editar Etiqueta</span>
+                        </ng-template>
+                        
                         
                         <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="Nombre" formControlName="Titulo" type="text" class="validate">
-                                    <label for="Nombre">Titulo de la etiqueta</label>
+                            <div (keyup)="NombreToTag()" class="input-field col s12">
+                                <input id="Nombre" formControlName="Nombre" type="text" class="validate">
+                                <label for="Nombre">Titulo de la etiqueta</label>
+                                
+                                <div *ngIf="tagForm.get('Nombre').invalid && (tagForm.get('Nombre').dirty || tagForm.get('Nombre').touched)" class="dangerText">
+                                    <div *ngIf="tagForm.get('Nombre').errors.required">
+                                        {{mensajeValidacion.Nombre.required}}
+                                    </div>
                                 </div>
                             </div>
+                        </div>
                         
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="ColorLetra" formControlName="Descripcion" type="text" class="validate">
+                            <div (keyup)="ColorLetraToTag()" class="input-field col s12">
+                                <input id="ColorLetra" formControlName="ColorLetra" type="text" class="validate">
                                 <label for="ColorLetra">Color de la letra</label>
+                                <small>El color es en codigo hexagecimal de 6 letras.</small>
+                                
+                                <div *ngIf="tagForm.get('ColorLetra').invalid && (tagForm.get('ColorLetra').dirty || tagForm.get('ColorLetra').touched)" class="dangerText">
+                                    <div *ngIf="tagForm.get('ColorLetra').errors.required">
+                                        {{mensajeValidacion.Color.required}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorLetra').errors.minlength">
+                                        {{mensajeValidacion.Color.minlength}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorLetra').errors.maxlength">
+                                        {{mensajeValidacion.Color.maxlength}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorLetra').errors.pattern">
+                                        {{mensajeValidacion.Color.pattern}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="ColorBackground" formControlName="Descripcion" type="text" class="validate">
+                            <div (keyup)="ColorBackgroundToTag()" class="input-field col s12">
+                                <input id="ColorBackground" formControlName="ColorBackground" type="text" class="validate">
                                 <label for="ColorBackground">Color del fondo</label>
+                                <small>El color es en codigo hexagecimal de 6 letras.</small>
+
+                                <div *ngIf="tagForm.get('ColorBackground').invalid && (tagForm.get('ColorBackground').dirty || tagForm.get('ColorBackground').touched)" class="dangerText">
+                                    <div *ngIf="tagForm.get('ColorBackground').errors.required">
+                                        {{mensajeValidacion.Color.required}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorBackground').errors.minlength">
+                                        {{mensajeValidacion.Color.minlength}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorBackground').errors.maxlength">
+                                        {{mensajeValidacion.Color.maxlength}}
+                                    </div>
+                                    <div *ngIf="tagForm.get('ColorBackground').errors.pattern">
+                                        {{mensajeValidacion.Color.pattern}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="MarginBottom20"></div>
-    
+
+                        <div class="MarginBottom20"></div>
+
                         <div class="right-align">
-                            <button type="submit" class="btn comuni-color">Crear</button>
+                            <ng-container *ngIf="crear; else elseTemplate">
+                                <button type="submit" class="btn comuni-color">Crear</button>
+                            </ng-container>
+                            <ng-template #elseTemplate>
+                                <button type="submit" class="btn comuni-color">Editar</button>
+                            </ng-template>
+                            
+                            
+                        </div>
+
+                        <div id="Tag">
+                            <p>{{tag.Object.Nombre}}</p>
                         </div>
                     </div>
                 </div>
             </form>
+        
+            <ng-container *ngIf="cargando;">
+                <div class="loader preloader-wrapper big active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>    
+
         </div>
     </div>
     

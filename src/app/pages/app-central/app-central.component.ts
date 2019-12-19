@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Go } from 'src/app/models/go';
 import { Usuario } from 'src/app/models/usuario';
 import { Router } from '@angular/router';
+import { EspacioService } from 'src/app/services/espacio.service';
+import { Espacio } from 'src/app/models/espacio';
 
 @Component({
   selector: 'app-app-central',
@@ -21,7 +23,6 @@ export class AppCentralComponent implements OnInit {
   logout(){
     localStorage.clear();
     this.router.navigate([""]);
-    
   }
 
 }

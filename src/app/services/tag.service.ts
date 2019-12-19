@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { inherits } from 'util';
+import { inherits, isNullOrUndefined } from 'util';
 import { RestApiService } from './rest-api.service';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -19,8 +19,9 @@ export class TagService {
    }
 
    public getAll(espacio:Go<Espacio>){
+     var espacioUrl = this.espacioToString(espacio);
     return this.http.get(this.url,{ 
-      params: {"espacio":JSON.stringify(espacio)},
+      params: {"espacioUrl":espacioUrl},
       headers: new RestApiService().httpOptionsJson
     });
   }
@@ -28,4 +29,28 @@ export class TagService {
   public post(tag:Tag){
     return this.http.post(this.url, tag, new RestApiService().httpOptions);
   }
+
+  public put(tag:Go<Tag>){
+    return this.http.put(this.url, tag, new RestApiService().httpOptions);
+  }
+
+  public delete(tag:Go<Tag>, espacio:Go<Espacio>){
+    var url = this.espacioToString(espacio);
+    url = "Espacios/" + url + "/Tags/" + tag.Key; 
+    return this.http.delete(this.url, { 
+      params: {"url":url},
+      headers: new RestApiService().httpOptionsJson
+    });
+  }
+
+  espacioToString(espacio:Go<Espacio>){
+  var espacioUrl:string;
+     if(isNullOrUndefined(espacio.Object.UrlEspacio)){
+       espacioUrl = espacio.Key;
+     }
+     else{
+        espacioUrl = espacio.Object.UrlEspacio + "/" + espacio.Key;
+     }
+     return espacioUrl.replace("/","-");
+    }
 }

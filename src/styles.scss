@@ -2,6 +2,10 @@
 @import './materialize-src/sass/materialize.scss';
 @import './styles/margins.scss';
 
+.margin-top-m{
+  margin-top: 35px;
+}
+
 body{
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -13,6 +17,15 @@ body{
   background-color: white;
 }
 
+.Tag{
+  margin-top:20px;
+  line-height: 0;
+  border-radius: 5px;
+  padding:2px 7px;
+  width: fit-content;
+  font-weight:normal;
+}
+
 .loader {
   position: absolute;
   top :0;
@@ -20,11 +33,18 @@ body{
   right: 0;
   bottom: 0;
   margin: auto;
+  z-index: 100;
+  overflow: hidden;
   }
 
 .parentCenters{
   justify-content: center;
   display: flex;
+}
+
+.justify{
+  justify-content: space-between;
+  display:flex;
 }
 
 .full-height{
@@ -45,6 +65,12 @@ body{
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
+}
+
+.btn-smaller{
+  font-size: 10px;
+  line-height: unset;
+  height: unset;
 }
 
 .botonInvis{
@@ -97,9 +123,15 @@ body{
     .input-field input[type].invalid:focus~.helper-text::after, 
     .input-field textarea.invalid:focus+label,
     .input-field textarea.invalid~.helper-text::after,
-    .input-field textarea.invalid:focus~.helper-text::after {
+    .input-field textarea.invalid:focus~.helper-text::after,
+    .dangerText {
       color: #e57373;
     }
+
+    .dangerText {
+      color: #bf360c;
+    }
+     
 
     .input-field input[type].valid,
     .input-field input[type].valid:focus,

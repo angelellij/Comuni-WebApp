@@ -1,39 +1,66 @@
 <div class="container">
     
-    
-    <p>Administradores</p>
-    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
-        <p>Este espacio no tiene administradores</p>
-    </ng-container>
-    <ng-template #elseTemplate>
-        <div *ngFor="let espaciox of espacios">
-        <app-espacio [espacio]="espaciox"></app-espacio>
-    </div>
-    </ng-template> 
+    <h5>{{espacioActual.Object.Nombre}}</h5>
+    <p>{{espacioActual.Object.Descripcion}}</p>
+    <button (click)="editEspacio(1)" class="btn btn-smaller comuni-color">Agregar nuevo subespacio</button>
+    <button (click)="editEspacio(2)" class="btn btn-smaller comuni-color">Editar</button>
+    <hr style="margin-top:20px;">
+    <div class="row" style="margin-top:20px;">
 
-    
-    <p>Miembros</p>
-    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
-        <p>Este espacio no tiene Miembros</p>
-    </ng-container>
-    <ng-template #elseTemplate>
-        <div *ngFor="let espaciox of espacios">
-        <app-espacio [espacio]="espaciox"></app-espacio>
-    </div>
-    </ng-template> 
+        <div class="col s3">
+            <div class="justify">
+                <strong>Etiquetas</strong>
+                <a [routerLink]="['../editoretiqueta']" class="btn btn-smaller comuni-color">Agregar</a>
+            </div>
+            <ng-container *ngIf="tagsVacio; else elseTemplate1">
+                <p>Este espacio no tiene etiquetas</p>
+            </ng-container>
+            <ng-template #elseTemplate1>
+                <div *ngFor="let tagx of tags">
+                    <div shortpress (shortpress)="editTag(tagx)" (longpress)="delteTag(tagx)" class="Tag" [style.background-color]="'#' + tagx.Object.ColorBackground" [style.color]="'#' + tagx.Object.ColorLetra">
+                        <p>{{tagx.Object.Nombre}}</p>
+                    </div>
+                </div>
+            </ng-template> 
+        </div>
 
-    <p>Etiquetas</p>
-    <ng-container *ngIf="tags == null || this.tags == undefined; else elseTemplate">
-        <p>Este espacio no tiene etiquetas</p>
-    </ng-container>
-    <ng-template #elseTemplate>
-        <div *ngFor="let tagx of tags">
-        <p>tagx.key</p>
-    </div>
-    </ng-template>  
+        <div class="col s1"></div>
+        
+        <div class="col s8">
+            <div class="justify">
+                <strong>Administradores</strong>
+                <button (click)="agregarUsuarios(1)" class="btn btn-smaller comuni-color">Agregar</button>
+            </div>
+            <ng-container *ngIf="espacioActual.Object.Administradores == null || espacioActual.Object.Administradores == undefined; else elseTemplate2">
+                <p>Este espacio no tiene administradores</p>
+            </ng-container>
+            <ng-template #elseTemplate2>
+               <div *ngFor="let admin of espacioActual.Object.Administradores | keyvalue">
+                    <div  class="usuario-container" (longpress)="deleteAdmin(admin.key)">
+                        <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                        <p class="inline usuario-nombre">{{admin.value.Nombre + " " + admin.value.Apellido}}</p>
+                        <hr class="hrColorStyle">
+                    </div>
+                </div>
+            </ng-template> 
+
+            <div class="justify">
+                <strong>Miembros</strong>
+                <button (click)="agregarUsuarios(2)" class="btn btn-smaller comuni-color">Agregar</button>
+            </div>
+            <ng-container *ngIf="miembrosVacio; else elseTemplate3">
+                <p>Este espacio no tiene Miembros</p>
+            </ng-container>
+            <ng-template #elseTemplate3>
+                <div *ngFor="let miembro of espacioActual.Object.Miembros | keyvalue">
+                     <div  class="usuario-container" (longpress)="deleteMiembro(miembro.key)">
+                         <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                         <p class="inline usuario-nombre">{{miembro.value.Nombre + " " + miembro.value.Apellido}}</p>
+                         <hr class="hrColorStyle">
+                     </div>
+                 </div>
+             </ng-template> 
+        </div> 
+    </div>   
 </div>
-<div class="fixed-action-btn">
-    <a [routerLink]="[ '../editornoticia' ]" class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
-    </a>
-</div>
+

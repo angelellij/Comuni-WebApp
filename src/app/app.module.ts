@@ -21,6 +21,11 @@ import { EspacioComponent } from './components/espacio/espacio.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { ConfEspacioPageComponent } from './pages/conf-espacio-page/conf-espacio-page.component';
 import { TagAbmComponent } from './pages/ABMs/tag-abm/tag-abm.component';
+import { TagComponent } from './components/tag/tag.component';
+import { ShortpressDirective } from './directives/shortpress.directive';
+import { LongpressDirective } from './directives/longpress.directive';
+import { EspacioAbmComponent } from './pages/ABMs/espacio-abm/espacio-abm.component';
+import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-usuarios.component';
 
 
 @NgModule({
@@ -41,7 +46,12 @@ import { TagAbmComponent } from './pages/ABMs/tag-abm/tag-abm.component';
     EspacioComponent,
     PostsComponent,
     ConfEspacioPageComponent,
-    TagAbmComponent
+    TagAbmComponent,
+    TagComponent,
+    ShortpressDirective,
+    LongpressDirective,
+    EspacioAbmComponent,
+    AgregarUsuariosComponent
   ],
   imports: [
     BrowserModule,
