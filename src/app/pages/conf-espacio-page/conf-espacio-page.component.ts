@@ -70,11 +70,14 @@ export class ConfEspacioPageComponent implements OnInit {
   delteTag(tag:Go<Tag>){
     this.tagSv.delete(tag,this.espacioActual).subscribe(res=>{
       var i:number = 0;
-      this.tags.forEach(element=>{
-        i++;
+      Object.values(this.tags).forEach(element =>{
         if(element.Key.match(tag.Key)){
-          this.tags.splice(i,i);
+          delete this.tags[i];
+          if(Object.values(this.tags).length == 0){
+            this.tagsVacio == true;
+          }
         }
+        i++;   
       })
     });
   }

@@ -14,6 +14,7 @@ import { TagAbmComponent } from './pages/ABMs/tag-abm/tag-abm.component';
 import {AuthGuard } from "./guards/auth.guard"
 import { EspacioAbmComponent } from './pages/ABMs/espacio-abm/espacio-abm.component';
 import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-usuarios.component';
+import { PostAbmComponent } from './pages/ABMs/post-abm/post-abm.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/presentacion', pathMatch: 'full'},
@@ -31,7 +32,8 @@ const routes: Routes = [
     {path:'editortag', component:TagAbmComponent, canActivate:[AuthGuard]},
     {path:'editoretiqueta', component:TagAbmComponent, canActivate:[AuthGuard]},
     {path:'editorespacio', component:EspacioAbmComponent, canActivate:[AuthGuard]},
-    {path:'agregarusuarios', component:AgregarUsuariosComponent, canActivate:[AuthGuard]}
+    {path:'agregarusuarios', component:AgregarUsuariosComponent, canActivate:[AuthGuard]},
+    {path:'editorpost', component:PostAbmComponent, canActivate:[AuthGuard]}
   ]}
  ];
 

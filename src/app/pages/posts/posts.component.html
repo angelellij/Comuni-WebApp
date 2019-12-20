@@ -1,15 +1,38 @@
 <div class="container">
-    <ng-container *ngIf="espacios == null || this.espacios == undefined; else elseTemplate">
+    <ng-container *ngIf="postsVacio; else elseTemplate">
         <p>No hay ningun post escrito.Se el primero!</p>
     </ng-container>
     <ng-template #elseTemplate>
         <div *ngFor="let postx of posts">
             <app-post [post]="postx"></app-post>
         </div>
-    </ng-template>  
+    </ng-template>   
 </div>
-<div class="fixed-action-btn">
+
+<ng-container *ngIf="cargando;">
+    <div class="loader preloader-wrapper big active">
+        <div class="spinner-layer spinner-green-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<div class="fixed-action-btn" style="bottom:90px;">
     <a [routerLink]="[ '../confespacio' ]" class="btn-floating btn-large red">
-        <i class="large material-icons">mode_edit</i>
+        <i class="large material-icons">C</i>
+    </a>
+</div>
+
+<div class="fixed-action-btn">
+    <a [routerLink]="[ '../editorpost' ]" class="btn-floating btn-large red">
+        <i class="large material-icons">+</i>
     </a>
 </div>

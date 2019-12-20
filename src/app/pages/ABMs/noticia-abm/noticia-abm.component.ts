@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NoticiaService } from 'src/app/services/noticia.service';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-noticia-abm',
@@ -13,9 +14,18 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class NoticiaABMComponent implements OnInit {
 
-  private usuario:Go<Usuario>;
-  private noticia:Go<Noticia> = {} as Go<Noticia>;
+  cargando:boolean = false;
+  crear:boolean = true;
   private noticiaForm: FormGroup;
+  private noticia:Go<Noticia>;
+
+  mensajeValidacion = {
+    'Texto':{
+      'required':'Se requiere este extracto',
+      'minlength':'El extracto debe tener al menos 3 caracteres',
+      'maxlength':'el extracto debe tener menos de 30 caracteres',
+    }
+  }
 
   constructor(
     private builder:FormBuilder, 
@@ -24,23 +34,44 @@ export class NoticiaABMComponent implements OnInit {
   {
     this.noticiaForm = this.builder.group(
       {
-        Titulo: ['', Validators.compose([Validators.required])],
-        Descripcion: ['', Validators.compose([Validators.required ])]
+        Titulo: ['', Validators.compose(
+          [Validators.required, 
+            Validators.maxLength(30), 
+            Validators.minLength(3)])],
+            Descripcion: ['', Validators.compose([
+          Validators.required, 
+          Validators.minLength(3)])]
       });
   }
   
 
   ngOnInit() {
+    this.noticia = {} as Go<Noticia>;
+    this.noticia.Object = {} as Noticia;
+    this.noticia.Object.Usuario = JSON.parse(localStorage.getItem("usuario"));
   }
 
-  submit(value:JSON){
-      this.noticia.Object = value.parse as unknown as Noticia;
-      this.noticiaSv.post(this.noticia.Object).subscribe(res=>{
-        this.noticia = res as Go<Noticia>;
-        if (this.noticia.Key != null){
-          this.router.navigateByUrl("/app-central/noticias");
-        }
+  submit(){
+    var now = new Date(); 
+    this.noticia.Object.Date = now.toLocaleString();
+    this.cargando = true;
+    if(this.noticiaForm.valid){
+      this.noticia.Object.Titulo = this.noticiaForm.get("Titulo").value;
+      this.noticia.Object.Descripcion = this.noticiaForm.get("Descripcion").value;
+        this.noticiaSv.post(this.noticia.Object).subscribe(res=>{
+          this.cargando = false;
+          this.noticia = res as Go<Noticia>;
+          this.redirectSubmit();  
       });
+    }
   }
 
+  redirectSubmit(){
+    if(isNullOrUndefined(this.noticia)){
+      alert("Server Error");
+    }
+    else{
+      this.router.navigateByUrl("/app-central/noticias");
+    }
+  }
 }

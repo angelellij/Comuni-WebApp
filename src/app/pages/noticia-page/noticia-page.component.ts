@@ -28,16 +28,6 @@ export class NoticiaPageComponent implements OnInit {
   getNoticias(){
     this.noticiaSv.getAll().subscribe(res=>{
       this.noticias = res as Array<Go<Noticia>>;
-      if(this.noticias.length != undefined){
-        var i = 0;
-        this.noticias.forEach(element => {
-          if(i % 2 == 0){
-            this.noticias1.push(element);
-          }  else{
-            this.noticias2.push(element);
-          }
-        });
-      }
     });
   }
 

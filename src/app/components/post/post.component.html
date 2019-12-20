@@ -5,10 +5,15 @@
                 <span class="card-title">{{post.Object.Titulo}}</span>
                 <p>{{post.Object.Descripcion}}</p>
                 <p>{{post.Object.Usuario.Object.Nombre + " " + post.Object.Usuario.Object.Apellido}}</p>
+                <p>{{post.Object.Date}}</p>
+            
+                <div *ngIf="post.Object.Tag != null && post.Object.Tag != undefined" class="Tag"
+                [style.background-color]="'#' + post.Object.Tag.Object.ColorBackground" [style.color]="'#' + post.Object.Tag.Object.ColorLetra">
+                    <p>{{post.Object.Tag.Object.Nombre}}</p>
+                </div>
             </div>
             <div class="card-action">
-                <a href="#">This is a link</a>
-                <a href="#">This is a link</a>
+                <a href="#">Ir al post</a>
             </div>
         </div>
     </div>

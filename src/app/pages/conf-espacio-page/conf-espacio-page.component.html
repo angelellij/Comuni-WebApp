@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="Administrador" class="container">
     
     <h5>{{espacioActual.Object.Nombre}}</h5>
     <p>{{espacioActual.Object.Descripcion}}</p>
@@ -17,7 +17,8 @@
             </ng-container>
             <ng-template #elseTemplate1>
                 <div *ngFor="let tagx of tags">
-                    <div shortpress (shortpress)="editTag(tagx)" (longpress)="delteTag(tagx)" class="Tag" [style.background-color]="'#' + tagx.Object.ColorBackground" [style.color]="'#' + tagx.Object.ColorLetra">
+                    <div shortpress (shortpress)="editTag(tagx)" (longpress)="delteTag(tagx)" class="Tag" 
+                    [style.background-color]="'#' + tagx.Object.ColorBackground" [style.color]="'#' + tagx.Object.ColorLetra">
                         <p>{{tagx.Object.Nombre}}</p>
                     </div>
                 </div>
@@ -54,6 +55,69 @@
             <ng-template #elseTemplate3>
                 <div *ngFor="let miembro of espacioActual.Object.Miembros | keyvalue">
                      <div  class="usuario-container" (longpress)="deleteMiembro(miembro.key)">
+                         <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                         <p class="inline usuario-nombre">{{miembro.value.Nombre + " " + miembro.value.Apellido}}</p>
+                         <hr class="hrColorStyle">
+                     </div>
+                 </div>
+             </ng-template> 
+        </div> 
+    </div>   
+</div>
+
+
+<div *ngIf="!Administrador" class="container">
+    
+    <h5>{{espacioActual.Object.Nombre}}</h5>
+    <p>{{espacioActual.Object.Descripcion}}</p>
+    <hr style="margin-top:20px;">
+    <div class="row" style="margin-top:20px;">
+
+        <div class="col s3">
+            <div class="justify">
+                <strong>Etiquetas</strong>
+            </div>
+            <ng-container *ngIf="tagsVacio; else elseTemplate6">
+                <p>Este espacio no tiene etiquetas</p>
+            </ng-container>
+            <ng-template #elseTemplate6>
+                <div *ngFor="let tagx of tags">
+                    <div class="Tag" style="cursor: pointer;"
+                    [style.background-color]="'#' + tagx.Object.ColorBackground" [style.color]="'#' + tagx.Object.ColorLetra">
+                        <p>{{tagx.Object.Nombre}}</p>
+                    </div>
+                </div>
+            </ng-template> 
+        </div>
+
+        <div class="col s1"></div>
+        
+        <div class="col s8">
+            <div class="justify">
+                <strong>Administradores</strong>
+            </div>
+            <ng-container *ngIf="espacioActual.Object.Administradores == null || espacioActual.Object.Administradores == undefined; else elseTemplate7">
+                <p>Este espacio no tiene administradores</p>
+            </ng-container>
+            <ng-template #elseTemplate7>
+               <div *ngFor="let admin of espacioActual.Object.Administradores | keyvalue">
+                    <div  class="usuario-container">
+                        <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
+                        <p class="inline usuario-nombre">{{admin.value.Nombre + " " + admin.value.Apellido}}</p>
+                        <hr class="hrColorStyle">
+                    </div>
+                </div>
+            </ng-template> 
+
+            <div class="justify">
+                <strong>Miembros</strong>
+            </div>
+            <ng-container *ngIf="miembrosVacio; else elseTemplate8">
+                <p>Este espacio no tiene Miembros</p>
+            </ng-container>
+            <ng-template #elseTemplate8>
+                <div *ngFor="let miembro of espacioActual.Object.Miembros | keyvalue">
+                     <div  class="usuario-container">
                          <img class="inline circle-small-img" src="../../../assets/perfil.jfif">
                          <p class="inline usuario-nombre">{{miembro.value.Nombre + " " + miembro.value.Apellido}}</p>
                          <hr class="hrColorStyle">

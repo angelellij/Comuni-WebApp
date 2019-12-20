@@ -26,6 +26,7 @@ import { ShortpressDirective } from './directives/shortpress.directive';
 import { LongpressDirective } from './directives/longpress.directive';
 import { EspacioAbmComponent } from './pages/ABMs/espacio-abm/espacio-abm.component';
 import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-usuarios.component';
+import { PostAbmComponent } from './pages/ABMs/post-abm/post-abm.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-
     ShortpressDirective,
     LongpressDirective,
     EspacioAbmComponent,
-    AgregarUsuariosComponent
+    AgregarUsuariosComponent,
+    PostAbmComponent
   ],
   imports: [
     BrowserModule,

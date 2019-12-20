@@ -1,6 +1,6 @@
 <div class="BackgroundComuni">
     <div class="container row full-height">
-        <form [formGroup]="noticiaForm" (ngSubmit)="submit()" class="col col offset-s3 s6" style="margin-top: 30px;">
+        <form [formGroup]="postForm" (ngSubmit)="submit()" class="col col offset-s3 s6 margin-top-m">
             <div class="card #e8f5e9 green lighten-2">
                 <div class="card-content white-text">
                     <ng-container *ngIf="crear; else elseTemplate1">
@@ -17,14 +17,14 @@
                             <label for="Titulo">Titulo del post </label>
                             <small>El titulo tiene un maximo de 30 caracteres.</small>
                             
-                            <div *ngIf="noticiaForm.get('Titulo').invalid && (noticiaForm.get('Titulo').dirty || noticiaForm.get('Titulo').touched)" class="dangerText">
-                                <div *ngIf="noticiaForm.get('Titulo').errors.required">
+                            <div *ngIf="postForm.get('Titulo').invalid && (postForm.get('Titulo').dirty || postForm.get('Titulo').touched)" class="dangerText">
+                                <div *ngIf="postForm.get('Titulo').errors.required">
                                     {{mensajeValidacion.Texto.required}}
                                 </div>
-                                <div *ngIf="noticiaForm.get('Titulo').errors.minlength">
+                                <div *ngIf="postForm.get('Titulo').errors.minlength">
                                     {{mensajeValidacion.Texto.minlength}}
                                 </div>
-                                <div *ngIf="noticiaForm.get('Titulo').errors.minlength">
+                                <div *ngIf="postForm.get('Titulo').errors.minlength">
                                     {{mensajeValidacion.Texto.maxlength}}
                                 </div>
                             </div>
@@ -36,14 +36,14 @@
                             <input id="Descripcion" formControlName="Descripcion" type="text" class="validate">
                             <label for="Descripcion">Color de la letra</label>
                             
-                            <div *ngIf="noticiaForm.get('Descripcion').invalid && (noticiaForm.get('Descripcion').dirty || noticiaForm.get('Descripcion').touched)" class="dangerText">
-                                <div *ngIf="noticiaForm.get('Descripcion').errors.required">
+                            <div *ngIf="postForm.get('Descripcion').invalid && (postForm.get('Descripcion').dirty || postForm.get('Descripcion').touched)" class="dangerText">
+                                <div *ngIf="postForm.get('Descripcion').errors.required">
                                     {{mensajeValidacion.Texto.required}}
                                 </div>
-                                <div *ngIf="noticiaForm.get('Descripcion').errors.minlength">
+                                <div *ngIf="postForm.get('Descripcion').errors.minlength">
                                     {{mensajeValidacion.Texto.minlength}}
                                 </div>
-                                <div *ngIf="noticiaForm.get('Descripcion').errors.maxlength">
+                                <div *ngIf="postForm.get('Descripcion').errors.maxlength">
                                     {{mensajeValidacion.Color.maxlength}}
                                 </div>
                             </div>
