@@ -27,6 +27,8 @@ import { LongpressDirective } from './directives/longpress.directive';
 import { EspacioAbmComponent } from './pages/ABMs/espacio-abm/espacio-abm.component';
 import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-usuarios.component';
 import { PostAbmComponent } from './pages/ABMs/post-abm/post-abm.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
+import { InnerNoticiasPageComponent } from './pages/inner-noticias-page/inner-noticias-page.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { PostAbmComponent } from './pages/ABMs/post-abm/post-abm.component';
     LongpressDirective,
     EspacioAbmComponent,
     AgregarUsuariosComponent,
-    PostAbmComponent
+    PostAbmComponent,
+    PostPageComponent,
+    InnerNoticiasPageComponent
   ],
   imports: [
     BrowserModule,

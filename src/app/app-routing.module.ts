@@ -15,6 +15,8 @@ import {AuthGuard } from "./guards/auth.guard"
 import { EspacioAbmComponent } from './pages/ABMs/espacio-abm/espacio-abm.component';
 import { AgregarUsuariosComponent } from './pages/ABMs/agregar-usuarios/agregar-usuarios.component';
 import { PostAbmComponent } from './pages/ABMs/post-abm/post-abm.component';
+import { PostPageComponent } from './pages/post-page/post-page.component';
+import { InnerNoticiasPageComponent } from './pages/inner-noticias-page/inner-noticias-page.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/presentacion', pathMatch: 'full'},
@@ -33,7 +35,9 @@ const routes: Routes = [
     {path:'editoretiqueta', component:TagAbmComponent, canActivate:[AuthGuard]},
     {path:'editorespacio', component:EspacioAbmComponent, canActivate:[AuthGuard]},
     {path:'agregarusuarios', component:AgregarUsuariosComponent, canActivate:[AuthGuard]},
-    {path:'editorpost', component:PostAbmComponent, canActivate:[AuthGuard]}
+    {path:'editorpost', component:PostAbmComponent, canActivate:[AuthGuard]},
+    {path:'post', component:PostPageComponent, canActivate:[AuthGuard]},
+    {path:'inner-noticia', component:InnerNoticiasPageComponent, canActivate:[AuthGuard]}
   ]}
  ];
 

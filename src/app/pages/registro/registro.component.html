@@ -4,19 +4,29 @@
         <img id='comuniLogo' class='col offset-s3 s6' src='../../assets/comuni_icon.svg'> 
     </div>
     <div class="container row">
-        <form  [formGroup]="registrarseForm" (ngSubmit)="submit(registrarseForm.value)" class="col offset-s3 s6">
+        <form  [formGroup]="registrarseForm" (ngSubmit)="submit(registrarseForm.value)" class="col offset-s1 s10">
             <div class="card #e8f5e9 green lighten-2">
                 <div class="card-content white-text">
                     <span class="card-title">Registro</span>
-                    
-                    <div class="row">
+
+                        <div class="input-field col s6">
+                            <div id='fotoPerfil' class="image"></div>
+                        </div>
+
+                    <div class="row"> 
                         <div class="input-field col s6">
                             <input formControlName="Nombre" type="text" class="validate">
                             <label for="Nombre">Nombre</label>
                         </div>
+
                         <div class="input-field col s6">
                             <input formControlName="Apellido" type="text" class="validate">
                             <label for="Apellido">Apellido</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <p>Foto Perfil</p>
+                            <input formControlName="foto" type="file" style='width: 100%;' (change)='getImg($event.target.files)'>
                         </div>
                     </div>
 
@@ -28,14 +38,12 @@
                     </div>
                     
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input formControlName="Contrasena" type="password" class="validate">
                             <label for="Contrasena">Contraseña</label>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <input formControlName="Contrasena2" type="password" class="validate">
                             <label for="Contrasena2">Repetir contraseña</label>
                         </div>

@@ -2,6 +2,17 @@
 @import './materialize-src/sass/materialize.scss';
 @import './styles/margins.scss';
 
+$colorAccent: #81c784;
+
+.clickable{
+  cursor: pointer;
+}
+
+.space-between{
+  display: flex;
+  justify-content: space-between;
+}
+
 .margin-top-m{
   margin-top: 35px;
 }
@@ -131,7 +142,6 @@ body{
     .dangerText {
       color: #bf360c;
     }
-     
 
     .input-field input[type].valid,
     .input-field input[type].valid:focus,
@@ -149,6 +159,14 @@ body{
     .input-field textarea.valid:focus~.helper-text::after {
       color: #e1ebd0;
     }
+
+    a, a:hover {
+      color: $colorAccent;
+      cursor: pointer;
+    }
+    a:hover{ opacity: 0.8;}
+
+
 
     .row,
     .row .input-field{

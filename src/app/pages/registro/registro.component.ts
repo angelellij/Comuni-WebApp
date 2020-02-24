@@ -11,7 +11,8 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
-
+  fotoPerfil:string = "../../../assets/foto-perfil.jpg";
+  foto:File = null;
   private cargando:boolean = false;
   private usuario:Go<Usuario> = {} as Go<Usuario>;
   private registrarseForm: FormGroup;
@@ -30,6 +31,7 @@ export class RegistroComponent implements OnInit {
    }
 
   ngOnInit() {
+    document.getElementById('fotoPerfil').style.backgroundImage = 'url('+this.fotoPerfil+')';
   }
 
   submit(value:JSON){
@@ -45,6 +47,17 @@ export class RegistroComponent implements OnInit {
       this.cargando = false;
       alert("Las contrasenas no coinciden.");
     }
+  }
+
+  getImg(file:FileList){
+    this.foto = file.item(0);
+
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.fotoPerfil = event.target.result;
+      document.getElementById('fotoPerfil').style.backgroundImage = 'url('+this.fotoPerfil+')';
+    }
+    reader.readAsDataURL(this.foto);
   }
 
 }

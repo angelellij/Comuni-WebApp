@@ -1,12 +1,17 @@
 <div class="row">
     <div class="col s12">
         <div class="card">
-        <div class="card-content">
-            <p class="card-title">{{noticia.Object.Titulo}}</p>
-            <p>{{noticia.Object.Descripcion}}</p>
-            <p>{{noticia.Object.Usuario.Object.Nombre + " " + noticia.Object.Usuario.Object.Apellido}}</p>
-            <p>{{noticia.Object.Date}}</p>
-        </div>
+            <div class="card-content">
+                <p class="card-title">{{noticia.Object.Titulo}}</p>
+                <p>{{noticia.Object.Descripcion}}</p>
+                <div class="space-between">
+                    <span>{{noticia.Object.Usuario.Object.Nombre + " " + noticia.Object.Usuario.Object.Apellido}}</span>
+                    <span>{{noticia.Object.Date}}</span>
+                </div>
+            </div>
+            <div class="card-action">
+                <a class="clickable" (click)="redirect()"> Ir a la Noticia</a>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="container row">
+    <h3> {{post.Object.Titulo}} </h3>
+    <div class="space-between">
+        <span> {{post.Object.Usuario.Object.Nombre + ' ' + post.Object.Usuario.Object.Apellido }}</span>
+        <span> {{post.Object.Date}}</span>
+    </div>
+    <div class="Tag" 
+        [style.background-color]="'#' + post.Object.Tag.Object.ColorBackground" 
+        [style.color]="'#' +  post.Object.Tag.Object.Color">
+         <span>{{ post.Object.Tag.Object.Nombre}}</span>
+    </div>
+    <hr>
+    <p> {{ post.Object.Descripcion}} </p>
+    <hr>
+    
+</div>
