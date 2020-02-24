@@ -15,14 +15,14 @@ import { Router } from '@angular/router';
 })
 export class ConfEspacioPageComponent implements OnInit {
   
-  private usuario:Go<Usuario>;
-  private tags:Array<Go<Tag>>;
-  private espacioActual:Go<Espacio>;
-  private espacios:Array<Go<Espacio>>;
-  private admins:Array<Go<Usuario>>;
-  private Administrador:boolean = false;
-  private miembrosVacio:boolean = false;
-  private tagsVacio:boolean = false;
+   usuario:Go<Usuario>;
+   tags:Array<Go<Tag>>;
+   espacioActual:Go<Espacio>;
+   espacios:Array<Go<Espacio>>;
+   admins:Array<Go<Usuario>>;
+   Administrador:boolean = false;
+   miembrosVacio:boolean = false;
+   tagsVacio:boolean = false;
 
   constructor(
     private espacioSv:EspacioService,

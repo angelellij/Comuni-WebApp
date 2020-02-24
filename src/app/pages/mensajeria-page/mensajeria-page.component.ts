@@ -9,7 +9,7 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class MensajeriaPageComponent implements OnInit {
 
-  public usuarioElegido:Go<Usuario>;
+  usuarioElegido:Go<Usuario>;
 
   constructor() { }
 

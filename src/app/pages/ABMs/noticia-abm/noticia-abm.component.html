@@ -44,30 +44,9 @@
                                     {{mensajeValidacion.Texto.minlength}}
                                 </div>
                                 <div *ngIf="noticiaForm.get('Descripcion').errors.maxlength">
-                                    {{mensajeValidacion.Color.maxlength}}
+                                    {{mensajeValidacion.Texto.maxlength}}
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <ng-container *ngIf="tagsVacio; else elseTemplate1">
-                                <p>Este espacio no tiene etiquetas para elegir.</p>
-                            </ng-container>
-                            <ng-template #elseTemplate1>
-                                <p> Elija una etiqueta para su post. (Opcional)</p>
-                                <ng-container *ngIf="tagElegido;">
-                                    <p>Eligio la etiqueta "{{post.Object.Tag.Object.Nombre}}"</p>
-                                </ng-container>
-                                <div *ngFor="let tagx of tags">
-                                    <div (click)="selectTag(tagx)" style="cursor:pointer;" class="Tag" [style.background-color]="'#' + tagx.Object.ColorBackground" 
-                                        [style.color]="'#' + tagx.Object.ColorLetra">
-                                        <p>{{tagx.Object.Nombre}}</p>
-                                    </div>
-                                </div>
-                            </ng-template> 
-
                         </div>
                     </div>
 

@@ -16,8 +16,8 @@ export class NoticiaABMComponent implements OnInit {
 
   cargando:boolean = false;
   crear:boolean = true;
-  private noticiaForm: FormGroup;
-  private noticia:Go<Noticia>;
+   noticiaForm: FormGroup;
+   noticia:Go<Noticia>;
 
   mensajeValidacion = {
     'Texto':{

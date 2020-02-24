@@ -11,8 +11,8 @@ import { EspacioService } from 'src/app/services/espacio.service';
 })
 export class EspacioPageComponent implements OnInit {
 
-  private usuario:Go<Usuario>;
-  private espacios:Array<Go<Espacio>>;
+   usuario:Go<Usuario>;
+   espacios:Array<Go<Espacio>>;
 
   constructor() { }
 

@@ -13,9 +13,9 @@ import { LoginService } from 'src/app/services/login.service';
 export class RegistroComponent implements OnInit {
   fotoPerfil:string = "../../../assets/foto-perfil.jpg";
   foto:File = null;
-  private cargando:boolean = false;
-  private usuario:Go<Usuario> = {} as Go<Usuario>;
-  private registrarseForm: FormGroup;
+   cargando:boolean = false;
+   usuario:Go<Usuario> = {} as Go<Usuario>;
+   registrarseForm: FormGroup;
 
   constructor(
     private builder:FormBuilder, 

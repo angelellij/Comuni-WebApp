@@ -16,8 +16,8 @@ export class TagAbmComponent implements OnInit {
 
   cargando:boolean = false;
   crear:boolean = true;
-  private tag:Go<Tag>;;
-  private tagForm: FormGroup;
+   tag:Go<Tag>;;
+   tagForm: FormGroup;
 
   mensajeValidacion = {
     'Nombre':{
@@ -33,9 +33,9 @@ export class TagAbmComponent implements OnInit {
 
 
   constructor(
-    private builder:FormBuilder, 
-    private tagSv:TagService,
-    private router: Router) 
+     private builder:FormBuilder, 
+     private tagSv:TagService,
+     private router: Router) 
   {
     this.tagForm = this.builder.group(
       {

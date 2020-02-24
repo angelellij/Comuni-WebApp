@@ -16,11 +16,11 @@ export class EspacioAbmComponent implements OnInit {
 
   cargando:boolean = false;
   crear:boolean = true;
-  private espacioActual:Go<Espacio>;
-  private espacio:Go<Espacio>;
-  private espacioForm: FormGroup;
-  private usuario:Go<Usuario>;
-  private allEspacios:Array<Go<Espacio>>;
+   espacioActual:Go<Espacio>;
+   espacio:Go<Espacio>;
+   espacioForm: FormGroup;
+   usuario:Go<Usuario>;
+   allEspacios:Array<Go<Espacio>>;
 
   mensajeValidacion = {
     'Texto':{

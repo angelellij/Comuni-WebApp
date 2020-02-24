@@ -17,10 +17,10 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 export class ChatComponent implements OnInit {
 
   
-  private dataAccesed:Boolean = false;
-  private usuarioLogueado:Go<Usuario>;
+   dataAccesed:Boolean = false;
+   usuarioLogueado:Go<Usuario>;
   @Input() usuario:Go<Usuario>;
-  private mensajes:Array<Go<Mensaje>>;
+   mensajes:Array<Go<Mensaje>>;
   mensajeriaForm:FormGroup;
 
   constructor(

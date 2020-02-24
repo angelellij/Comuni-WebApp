@@ -12,7 +12,7 @@ import { Espacio } from 'src/app/models/espacio';
 })
 export class AppCentralComponent implements OnInit {
 
-  private usuario:Go<Usuario> = {} as Go<Usuario>;
+   usuario:Go<Usuario> = {} as Go<Usuario>;
 
   constructor(private router:Router) { }
 

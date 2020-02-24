@@ -13,10 +13,10 @@ import { isNullOrUndefined } from 'util';
 })
 export class AgregarUsuariosComponent implements OnInit {
 
-  private cargando:boolean = false;
-  private tipo:string;
-  private espacioActual:Go<Espacio>;
-  private usuarios:Array<Go<Usuario>>;
+   cargando:boolean = false;
+   tipo:string;
+   espacioActual:Go<Espacio>;
+   usuarios:Array<Go<Usuario>>;
 
   constructor(
     private espacioSv:EspacioService,

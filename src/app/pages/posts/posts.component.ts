@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
-  private postsVacio = true;
-  private espacioActual:Go<Espacio>;
-  private posts:Array<Go<Post>>;
-  private cargando:boolean = true;
+   postsVacio = true;
+   espacioActual:Go<Espacio>;
+   posts:Array<Go<Post>>;
+   cargando:boolean = true;
 
   constructor(
     private postSv:PostService,

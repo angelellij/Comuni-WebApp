@@ -44,7 +44,7 @@
                                     {{mensajeValidacion.Texto.minlength}}
                                 </div>
                                 <div *ngIf="postForm.get('Descripcion').errors.maxlength">
-                                    {{mensajeValidacion.Color.maxlength}}
+                                    {{mensajeValidacion.Texto.maxlength}}
                                 </div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <ng-container *ngIf="tagsVacio; else elseTemplate1">
+                            <ng-container *ngIf="tags.length == 0; else elseTemplate1">
                                 <p>Este espacio no tiene etiquetas para elegir.</p>
                             </ng-container>
                             <ng-template #elseTemplate1>

@@ -18,10 +18,10 @@ export class PostAbmComponent implements OnInit {
 
   cargando:boolean = false;
   crear:boolean = true;
-  private tagElegido = false;
-  private tags:Array<Go<Tag>>;
-  private postForm: FormGroup;
-  private post:Go<Post>;
+   tagElegido = false;
+   tags:Array<Go<Tag>>;
+   postForm: FormGroup;
+   post:Go<Post>;
 
   mensajeValidacion = {
     'Texto':{

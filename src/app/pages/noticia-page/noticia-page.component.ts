@@ -12,10 +12,11 @@ import { NoticiaService } from 'src/app/services/noticia.service';
 })
 export class NoticiaPageComponent implements OnInit {
   @Output() sendUsuario: EventEmitter<any> = new EventEmitter<any>()
-  private usuario:Go<Usuario>;
-  private noticias:Array<Go<Noticia>>;
-  private noticias1:Array<Go<Noticia>>;;
-  private noticias2:Array<Go<Noticia>>;
+   usuario:Go<Usuario>;
+   noticias:Array<Go<Noticia>>;
+   noticias1:Array<Go<Noticia>>;;
+   noticias2:Array<Go<Noticia>>;
+   cargando:boolean = false;
 
   constructor(
     private noticiaSv:NoticiaService) { }

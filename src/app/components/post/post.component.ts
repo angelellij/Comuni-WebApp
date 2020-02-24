@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/models/post';
 import { Router } from '@angular/router';
+import { Go } from 'src/app/models/go';
 
 @Component({
   selector: 'app-post',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PostComponent implements OnInit {
 
-  @Input() post:Post;
+  @Input() post:Go<Post>;
 
   constructor(private router:Router) { }
 

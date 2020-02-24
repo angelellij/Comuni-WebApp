@@ -16,10 +16,10 @@ import { isNullOrUndefined } from 'util';
 })
 export class LoginComponent implements OnInit {
 
-  private cargando:boolean = false;
-  private espacios:Array<Go<Espacio>>;
-  private usuario:Go<Usuario> = {} as Go<Usuario>;
-  private loginForm: FormGroup;
+   cargando:boolean = false;
+   espacios:Array<Go<Espacio>>;
+   usuario:Go<Usuario> = {} as Go<Usuario>;
+   loginForm: FormGroup;
 
   constructor(
     private builder:FormBuilder, 
